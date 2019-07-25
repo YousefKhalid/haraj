@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Page</title>
+</head>
+<body>
+    <div class="cont">
+        <h1>Home Page</h1>
+        {% for i in adds %}
+        <div class="adds">
+            <p>{{i.name}}</p>
+            <p>{{i.body}}</p>
+            <p>{{i.Phone_number}}</p>
+            <p>{{i.city}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
