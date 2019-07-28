@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .form import ContactForm , Add
+from .form import ContactForm , AddForm
 from .models import Add
 
 
@@ -33,18 +33,17 @@ def index(request):
  
  
 def add(request):
-    form = Add()
+    form = AddForm()
     if request.method == 'POST':
-        form = Add(request.POST)
-        form.save(commit=True)
-        messages.success(request ,'Your ad have add ')
-        return HttpResponseRedirect('/home/')
+        form = AddForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+    data={    
+         'form':form
+     }
 
-    data = {    
-        'form':form
-    }
-
-    return render(request, 'add.html')
+    return render(request, 'add.html', data)
  
 def send_email(name, email, body):
     print(name, email, body)
