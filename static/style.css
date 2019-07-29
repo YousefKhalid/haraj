@@ -18,7 +18,12 @@ h1,h2,h3{
 p{
     margin: 10px 0;
 }
-
+.btn {
+    width: 30%;
+    background-color:rgb(196, 189, 189);
+    color: black;        
+    padding: 10px;
+}
 .container{
     width: 1100px;
     margin: 0 auto;
@@ -63,7 +68,7 @@ p{
 /* adds */
 .adds{
     padding: 2px;
-    border: 2px black solid;
+    border: 5px white solid;
     color: tomato;
     background-color: gray;
 }
@@ -81,3 +86,9 @@ p{
 .mid{
     background-color: black;
 }
+
+/* add */
+
+#add .container  form{
+    background-color:rgb(249, 249, 250);
+} 

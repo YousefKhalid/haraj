@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block body %}
+<div id="add">
     <div class="container">
         <h1>Add New ad</h1>
 
         <form action="" method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <input type="submit" value="add your ad" class="btn">
+            <input class="btn" type="submit" value="ADD">
         </form>
     </div>
+</div>
 {% endblock %}
