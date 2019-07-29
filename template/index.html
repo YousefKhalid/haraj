@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index Page</title>
+    <link rel="stylesheet" href="static/style.css">
+    <title>home</title>
 </head>
 <body>
-    <div class="cont">
-        <h1>Home Page</h1>
+    <nav id="navbar">
+        <div class="container">
+            <h1><a href="index.html">haraj</a></h1>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="add/">Add</a></li>
+                <li><a href="contact/">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>welcome to our website</h1>
+        <p>i hope you find what you need</p>
         {% for i in adds %}
         <div class="adds">
             <p>{{i.name}}</p>
@@ -18,5 +30,9 @@
         </div>
         {% endfor %}
     </div>
+
+    <footer id="footer" class="clr">
+        <p>haraj &copy; 2019 All right Reserved</p>
+    </footer>
 </body>
 </html>
