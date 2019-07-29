@@ -17,9 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from haraj_app import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path ('contact/', views.contact),
     path('add/', views.add),
+    path('detalis/', views.detalis)
+    
     ]

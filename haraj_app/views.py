@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect, HttpResponseRedirect, Http404
+from django.urls import reverse, reverse_lazy
 from django.contrib import messages
-from .form import ContactForm , AddForm
+from .form import ContactForm , AddForm, UserForm, ProfileForm, LoginForm
 from .models import Add
 
+from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth import authenticate, login, logout
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import User
 
 def contact(request):
     form = ContactForm()
@@ -44,6 +50,33 @@ def add(request):
      }
 
     return render(request, 'add.html', data)
- 
-def send_email(name, email, body):
-    print(name, email, body)
+
+def detalis(requset,pk):
+    ad = get_object_or_404(Add,pk=pk)
+    data = {    
+        'ad' : ad
+    }
+    return render(request, 'detalis.html' , data)
+
+
+def register(request):
+    userForm = UserForm()
+    profileForm = ProfileForm()
+    
+    if request.method == 'POST':
+        userForm = UserForm(request.POST)
+        profileForm = ProfileForm(request.POST)
+
+        if userForm.is_valid() and profileForm.is_valid():
+            user = userForm.save(commit=False)
+            user.set_password(user.password)
+            user.save()
+
+            profile = profileForm.save(commit=False)
+            profile.user = user
+            profile.save()
+            return HttpResponseRedirect(reverse('home'))
+
+    data = { 'userForm': userForm, 'profileForm': profileForm}
+    return render(request, 'register.html', data)
+
