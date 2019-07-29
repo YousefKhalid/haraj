@@ -18,8 +18,8 @@ from django.urls import path
 from haraj_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index),
-    path ('contact/', views.contact),
-    path('add/', views.add),
+    path('admin/', admin.site.urls,),
+    path('', views.index,name='home'),
+    path ('contact/', views.contact,name='contact'),
+    path('add/', views.add,name='add'),
     ]
