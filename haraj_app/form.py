@@ -30,3 +30,4 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     body = forms.CharField(widget=forms.Textarea, help_text='write your message here')
 
+
