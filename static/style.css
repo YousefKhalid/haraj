@@ -6,7 +6,7 @@
 }
 body{
     line-height: 1.7rem;
-
+    background-color: rgb(80, 159, 165);
 }
 a{
     text-decoration: none;
@@ -31,7 +31,7 @@ p{
     padding: 10px 20px;
 } 
 #navbar{
-    background-color:rgb(44, 26, 26);
+    background-color:rgb(43, 127, 133);
     overflow:hidden;
 }
 #navbar h1{
@@ -52,8 +52,8 @@ p{
 
 }
 #navbar a:hover{
-    background-color: gray;
-    color: tomato;
+    background-color:rgb(10, 6, 19);
+    color:rgb(187, 172, 216);
 }
 #navbar ul li a{
     color: white;
@@ -76,8 +76,8 @@ p{
 /* footer */
 #footer{
     text-align: center;
-    background-color: black;
-    color: tomato;
+    background-color:rgb(36, 104, 109);
+    color:rgb(187, 172, 216);
     padding: 10px;
 }
 .clr{
@@ -90,7 +90,7 @@ p{
 
 
 /* add */
-#add .container form{
+.add .container form{
     background-color:#f4f4f4f4;
     margin: 0 auto;
     padding-left: 20%;
