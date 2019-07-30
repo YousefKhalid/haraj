@@ -69,8 +69,8 @@ p{
 .adds{
     padding: 2px;
     border: 5px white solid;
-    color: tomato;
-    background-color: gray;
+    color: gray;
+    background-color:#f4f4f4f4;
 }
 
 /* footer */
@@ -95,8 +95,8 @@ p{
     margin: 0 auto;
     padding-left: 20%;
 }
- label,input {
-     display: block;
-     padding: 3px;
- }
- 
+label,input {
+    display: block;
+    padding: 5px;
+}
+/* contact */
