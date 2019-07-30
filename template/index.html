@@ -12,9 +12,9 @@
         {% for i in adds %}
         <div class="adds">
             <p>{{i.name}}</p>
-            <p>{{i.body}}</p>
-            <!-- <p>{{i.Phone_number}}</p> -->
+            <p id="date">{{i.date}}</p>
             <p>{{i.city}}</p>
+            <p id="pic"><img src="{{i.picture.url}}" alt="Cover Image" width="100px"></p>
         </div>
         {% endfor %}
     </div>

@@ -9,7 +9,7 @@
     <div class="container">
         <h1 class="text">Add New ad</h1>
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
             <input class="btn" type="submit" value="ADD">
