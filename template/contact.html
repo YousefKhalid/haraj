@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title%}
-    Contact Page
+Contact Page
 {% endblock %}
 
 {% block body %}
+<div class="add">
     <div class='container'>
         <h1>Contact Page</h1>
 
         {% if messages %}
-        <div>
+        <div id="contact">
             {% for i in messages %}
             <p>{{i}}</p>
             {%endfor%}
@@ -20,7 +21,8 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p}}
-            <input  class='btn' type="submit" value="send">
+            <input class='btn' type="submit" value="send">
         </form>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}
