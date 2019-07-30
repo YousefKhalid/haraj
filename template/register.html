@@ -12,6 +12,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         {{userForm.as_p}}
+        
         {{profileForm.as_p}}
         <input type="submit" value="Register Now" class="btn">
     </form>

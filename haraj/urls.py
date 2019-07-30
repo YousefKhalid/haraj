@@ -28,5 +28,6 @@ urlpatterns = [
     path('add/', views.add,name='add'),
     path('detalis/', views.detalis,name='detalis'),
     path('register/',views.register,name='register'),
+    path('login',views.login,name='login'),
 
     ]
