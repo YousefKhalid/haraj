@@ -47,12 +47,12 @@ p{
     list-style-type: none;
 }
 #navbar a{
-    color: goldenrod;
+    color: white;
     
 
 }
 #navbar a:hover{
-    background-color:rgb(10, 6, 19);
+    background-color:rgb(82, 68, 31);
     color:rgb(187, 172, 216);
 }
 #navbar ul li a{
@@ -99,4 +99,10 @@ label,input {
     display: block;
     padding: 5px;
 }
-/* contact */
+/* index */
+.detail{
+    float: left;
+}
+img{
+    float: right;
+}
