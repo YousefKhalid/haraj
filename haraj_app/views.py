@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponseRedirect, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
 from .form import ContactForm , AddForm, UserForm, ProfileForm, LoginForm
@@ -80,3 +80,25 @@ def register(request):
     data = { 'userForm': userForm, 'profileForm': profileForm}
     return render(request, 'register.html', data)
 
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request , user)
+                return HttpResponseRedirect(reverse('home'))
+            else:
+                    return HttpResponse('Account not active')
+        else:
+                    print('Username {} and password {}'.format(username,password))
+                    return HttpResponse('invalid login')
+    else:
+        return render(request ,'haraj_app/login.html')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home'))
