@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from haraj_app import views
 
+from django.urls import reverse
+from django.http import HttpRequest , HttpResponseRedirect
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.conf.urls.static import static
+from django.contrib.auth import authenticate , login , logout
 
 
 urlpatterns = [

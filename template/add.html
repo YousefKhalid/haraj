@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block title%}
-    add Page
+add Page
 {% endblock %}
 
 {% block body %}
-<div class="add">
-    <div class="container">
-        <h1 class="text">Add New ad</h1>
+<div class="container">
+    <div class="main">
+        <h1>Add New ad</h1>
 
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
-            <input class="btn" type="submit" value="ADD">
         </form>
+        <input class="btn" type="submit" value="ADD">
     </div>
 </div>
 {% endblock %}

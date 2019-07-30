@@ -91,10 +91,10 @@ def user_login(request):
                 login(request , user)
                 return HttpResponseRedirect(reverse('home'))
             else:
-                    return HttpResponse('Account not active')
+                return HttpResponse('Account not active')
         else:
-                    print('Username {} and password {}'.format(username,password))
-                    return HttpResponse('invalid login')
+                print('Username {} and password {}'.format(username,password))
+                return HttpResponse('invalid login')
     else:
         return render(request ,'haraj_app/login.html')
 
