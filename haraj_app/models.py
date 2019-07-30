@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 class Add(models.Model):
     name = models.CharField(max_length=20)
     body = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+    picture = models.ImageField(upload_to='haraj_pics', blank = True)
     Phone_number = models.CharField(max_length=10)
     city = models.CharField(max_length=10)
 
