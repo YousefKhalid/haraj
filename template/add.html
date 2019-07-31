@@ -5,6 +5,7 @@ add Page
 {% endblock %}
 
 {% block body %}
+{% if user.is_authenticated %}
 <div class="container">
     <div class="main">
         <h1>Add New ad</h1>
@@ -17,4 +18,13 @@ add Page
         </form>
     </div>
 </div>
+{% else %}
+<div class="container">
+    <div class="main">
+        <h1>You can't add whithout login</h1>
+        <h3>Please login <a id="login" href="{% url 'login'%}">here</a> or <a id="login" href="{% url 'register'%}">Register</a></h3> 
+
+    </div>
+</div>
+{% endif %}
 {% endblock %}

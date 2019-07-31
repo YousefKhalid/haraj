@@ -1,33 +1,25 @@
-<<<<<<< HEAD
 {% extends 'base.html' %}
 
-{% block title%}
-ad Detail
-{% endblock%}
-
-
-{% block body %}
-<div class="container">
-    <h1>add Details</h1>
-    
-    <p>Name: {{add.name}}</p>
-    <p>Author: {{add.date}}</p>
-    <p>Cover: <img src="{{add.picture.url}}" alt="Cover Image" width="200px"></p>
-    <p>About: {{add.body}}</p>
-
-    <a href="{% url 'update-add' add.id%}">Update Book</a>
-    <a href="{% url 'delete-add' add.id%}">Delete Book</a>
-</div>
-{% endblock %}
-=======
 {% block title %}
 add detalis
 {% endblock %}
 
 
 {% block body %}
-    <h1>Detalis</h1>
-    <p>name: {{ad.name}}</p>
-    <p>Date: {{ad.date}}</p>
+<div class="container">
+    <div class="main">
+        <h1><strong> Detalis:</strong></h1>
+        <div id="top">
+            <p id="name"> Name: {{ad.name}}             <p id="date1">{{ad.date}}</p>
+        </p>
+        <br>
+            <p id='city'>City: {{ad.city}}</p>
+        </div>
+        <p id="about">About: <br>
+             {{ad.body}} <br> 
+             <img src="{{ad.picture.url}}" alt="Cover Image" width="100px">
+        </p>
+        <p id="phone"> Phone: {{ad.Phone_number}}</p>
+    </div>
+</div>
 {% endblock %}
->>>>>>> 6d9bfd1b89c0e90fddcd8938c5327c4da8858e98

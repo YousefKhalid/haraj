@@ -7,16 +7,19 @@ Home Page
 
 {% block body %}
 <div class="container">
-    <h1>welcome to our website</h1>
-    <h3>i hope you find what you need</h3>
+    <div class="text">
+        <h1>welcome to our website</h1>
+        <h3>i hope you find what you need</h3>
+    </div>
+    <br>
     {% for i in adds %}
-    <div class="adds">
+    <div class="index">
         <div class="detail">
             <a id="info" href="{% url 'detalis' i.pk %}">{{i.name}}</a>
             <p id="date">{{i.date}}</p>
             <p>{{i.city}}</p>
         </div>
-        <img src="{{i.picture.url}}" alt="Cover Image" width="100px">
+        <img id="img" src="{{i.picture.url}}" alt="Cover Image" width="100px">
     </div>
     {% endfor %}
 </div>

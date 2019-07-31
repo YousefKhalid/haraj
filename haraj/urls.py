@@ -36,4 +36,5 @@ urlpatterns = [
     path('login/',views.user_login,name='login'),
     path('detalis/<int:pk>/', views.detalis, name='detalis'),
     
+    
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
