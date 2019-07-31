@@ -34,6 +34,8 @@ urlpatterns = [
     path('register/',views.register,name='register'),
     path('logout/', views.user_logout, name='logout'),
     path('login/',views.user_login,name='login'),
+    path('book/<int:pk>/update/', views.addUpdate.as_view(), name='update-ad'),
+    path('book/<int:pk>/delete/', views.addDelete.as_view(), name='delete-ad'),
     path('detail/<int:pk>', views.detalis, name='detalis'),
 
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -30,6 +30,16 @@ def contact(request):
         }
     return render (request, 'contact.html', data)
 
+class addUpdate(UpdateView):
+    model = Add
+    fields = '__all__'
+    template_name = 'add_form.html'
+
+class addDelete(DeleteView):
+    model = Add
+    success_url = reverse_lazy('home')
+    template_name = 'add_confirm_delete.html'
+
 def index(request):
     adds = Add.objects.all()
     data = {    

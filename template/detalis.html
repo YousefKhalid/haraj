@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title%}
+ad Detail
+{% endblock%}
+
+
+{% block body %}
+<div class="container">
+    <h1>add Details</h1>
+    
+    <p>Name: {{add.name}}</p>
+    <p>Author: {{add.date}}</p>
+    <p>Cover: <img src="{{add.picture.url}}" alt="Cover Image" width="200px"></p>
+    <p>About: {{add.body}}</p>
+
+    <a href="{% url 'update-add' add.id%}">Update Book</a>
+    <a href="{% url 'delete-add' add.id%}">Delete Book</a>
+</div>
+{% endblock %}

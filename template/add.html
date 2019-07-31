@@ -12,8 +12,9 @@ add Page
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form.as_p}}
+            <input class="btn" type="submit" value="ADD">
+
         </form>
-        <input class="btn" type="submit" value="ADD">
     </div>
 </div>
 {% endblock %}

@@ -72,7 +72,7 @@ p{
 /* adds */
 .adds{
     padding: 2px;
-    border: 5px white solid;
+    border: 5px white ;
     color: gray;
     background-color:#f4f4f4f4;
     overflow: hidden;
