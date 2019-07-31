@@ -12,7 +12,7 @@ Home Page
     {% for i in adds %}
     <div class="adds">
         <div class="detail">
-            <a id="info" href="{% url 'detalis'%}">{{i.name}}</a>
+            <a id="info" href="{% url 'detalis' i.pk %}">{{i.name}}</a>
             <p id="date">{{i.date}}</p>
             <p>{{i.city}}</p>
         </div>
