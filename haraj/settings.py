@@ -22,6 +22,13 @@ STATICFILES_DIRS=[
     STATIC_DIR
 ]
 
+REST_FRAMEWORK = {
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+]
+}
+
+
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
@@ -47,7 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'haraj_app'
+    'haraj_app',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

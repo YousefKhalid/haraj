@@ -25,6 +25,8 @@ from django.conf.urls.static import static
 from django.contrib.auth import authenticate , login , logout
 
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index,name='home'),
@@ -38,3 +40,17 @@ urlpatterns = [
     
     
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+from rest_framework import routers
+from haraj_app import views as api_views
+from django.urls import include
+
+router = routers.DefaultRouter()
+router.register('add', api_views.AddViewSet)
+
+urlpatterns += [
+path('api/', include(router.urls))
+]

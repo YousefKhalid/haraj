@@ -11,6 +11,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 
+
+from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import AddSerializer
+
+class AddViewSet(viewsets.ModelViewSet):
+    queryset =Add.objects.all()
+    serializer_class = AddSerializer
+
 def contact(request):
     form = ContactForm()
 
@@ -22,8 +31,9 @@ def contact(request):
             body = form.cleaned_data ['body']
 
             send_email(name , email ,body)
+            form=ContactForm()
             messages.success(request ,'Thank you for  email us')
-            return HttpResponseRedirect('/contact/')
+            return HttpResponseRedirect(reverse('contact'))
 
     data = {
         'form': form
@@ -116,3 +126,6 @@ def user_login(request):
     
     data = {'form': form}
     return render(request, 'login.html', data)
+
+    def send_email(name, email, body):
+        print('email is sending')
