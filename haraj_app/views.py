@@ -51,8 +51,8 @@ def add(request):
 
     return render(request, 'add.html', data)
 
-def detalis(requset,pk):
-    ad = get_object_or_404(Add,pk=pk)
+def detalis(request,pk):
+    ad = get_object_or_404(Add, pk=pk)
     data = {    
         'ad' : ad
     }
@@ -80,25 +80,29 @@ def register(request):
     data = { 'userForm': userForm, 'profileForm': profileForm}
     return render(request, 'register.html', data)
 
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(username=username, password=password)
-        if user:
-            if user.is_active:
-                login(request , user)
-                return HttpResponseRedirect(reverse('home'))
-            else:
-                return HttpResponse('Account not active')
-        else:
-                print('Username {} and password {}'.format(username,password))
-                return HttpResponse('invalid login')
-    else:
-        return render(request ,'haraj_app/login.html')
 
 @login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+
+def user_login(request):
+    form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect(reverse('home'))
+                else:
+                    messages.error(request, 'user is not active')
+            else:
+                messages.error(request, 'invalid username of password')
+    
+    data = {'form': form}
+    return render(request, 'login.html', data)
